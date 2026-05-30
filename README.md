@@ -1,6 +1,6 @@
 # WowoClean Pro API
 
-Backend API untuk aplikasi WowoClean Pro yang dikembangkan menggunakan Laravel. Project ini dibuat untuk memenuhi tugas Ujian Akhir Praktikum Pemrograman Web dengan implementasi Database Integration, JWT Authentication, Role Authorization, API Gateway, Swagger Documentation, dan API Versioning.
+Backend API untuk aplikasi WowoClean Pro yang dikembangkan menggunakan Laravel. Project ini dibuat untuk memenuhi tugas Ujian Akhir Praktikum Teknologi Integrasi Sistem dengan implementasi Database Integration, JWT Authentication, Role Authorization, API Gateway, Swagger Documentation, dan API Versioning.
 
 ## Informasi Mahasiswa
 
