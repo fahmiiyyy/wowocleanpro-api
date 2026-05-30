@@ -1,58 +1,136 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# WowoClean Pro API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Backend API untuk aplikasi WowoClean Pro yang dikembangkan menggunakan Laravel. Project ini dibuat untuk memenuhi tugas Ujian Akhir Praktikum Pemrograman Web dengan implementasi Database Integration, JWT Authentication, Role Authorization, API Gateway, Swagger Documentation, dan API Versioning.
 
-## About Laravel
+## Informasi Mahasiswa
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* Nama : Fahmi Muhammad Fayid Dhinanta
+* NIM : 245150700111018
+* Program Studi : Teknologi Informasi
+* Angkatan : 2024
+* Kelas : TIS C
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Teknologi yang Digunakan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* Laravel 12
+* MySQL
+* JWT Authentication
+* L5 Swagger
+* Axios
+* API Gateway Pattern
 
-## Learning Laravel
+## Fitur Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Database Integration
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Penyimpanan data kontainer ke database MySQL
+* Penyimpanan data tracking log ke database MySQL
+* Relasi Container dan Tracking Log
+* Migrasi database menggunakan Laravel Migration
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Container Management
 
-## Agentic Development
+* Menampilkan seluruh data kontainer
+* Menambahkan kontainer baru
+* Mengubah status kontainer menjadi Archived
+* Menghapus data kontainer
+* Pencarian dan filter data kontainer
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Tracking Log
 
-```bash
-composer require laravel/boost --dev
+* Menampilkan riwayat perjalanan kontainer
+* Relasi satu kontainer memiliki banyak tracking log
 
-php artisan boost:install
+### JWT Authentication
+
+* Login pengguna
+* Melihat profil pengguna
+* Logout pengguna
+* Token-based authentication menggunakan JWT
+
+### Role Authorization
+
+* Role Admin
+* Role User atau Operator Lapangan
+* Pembatasan akses endpoint berdasarkan role
+
+### API Gateway
+
+* Seluruh akses client menggunakan endpoint gateway
+* Middleware autentikasi pada gateway
+* Middleware role authorization pada gateway
+
+### API Documentation
+
+* Dokumentasi API menggunakan Swagger
+* Endpoint dapat diuji langsung melalui Swagger UI
+* Dokumentasi tersedia pada:
+
+```text
+/api/documentation
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### API Versioning
 
-## Contributing
+Seluruh endpoint menggunakan URI Versioning:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```text
+/api/v1/login
+/api/v1/profile
+/api/v1/logout
 
-## Code of Conduct
+/api/v1/gateway/containers
+/api/v1/gateway/containers/search
+/api/v1/gateway/containers/{id}/logs
+/api/v1/gateway/containers/{id}/archive
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Cara Menjalankan Project
 
-## Security Vulnerabilities
+### Clone Repository
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+git clone https://github.com/fahmiiyyy/wowocleanpro-api.git
+```
 
-## License
+### Install Dependency
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+composer install
+```
+
+### Copy Environment
+
+```bash
+cp .env.example .env
+```
+
+### Generate Key
+
+```bash
+php artisan key:generate
+```
+
+### Generate JWT Secret
+
+```bash
+php artisan jwt:secret
+```
+
+### Migrasi Database
+
+```bash
+php artisan migrate
+```
+
+### Jalankan Server
+
+```bash
+php artisan serve
+```
+
+## Author
+
+Fahmi Muhammad Fayid Dhinanta
+245150700111018
+Teknologi Informasi 2024 - TIS C
