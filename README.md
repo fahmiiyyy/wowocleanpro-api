@@ -146,7 +146,7 @@ php artisan migrate
 php artisan l5-swagger:generate
 ```
 
-Dokumentasi dapat diakses pada:
+Dokumentasi dapat diakses pada (setelah server dijalankan):
 
 ```text
 http://127.0.0.1:8000/api/documentation
