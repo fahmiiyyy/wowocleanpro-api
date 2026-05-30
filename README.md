@@ -104,7 +104,24 @@ composer install
 ```bash
 cp .env.example .env
 ```
+### Konfigurasi Database
 
+Buat database baru pada MySQL, misalnya:
+
+```sql
+CREATE DATABASE wowoclean_uap_tis;
+```
+
+Kemudian sesuaikan konfigurasi database pada file `.env`:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=wowoclean_uap_tis
+DB_USERNAME=root
+DB_PASSWORD=
+```
 ### Generate Key
 
 ```bash
@@ -121,6 +138,18 @@ php artisan jwt:secret
 
 ```bash
 php artisan migrate
+```
+
+### Generate Swagger Documentation
+
+```bash
+php artisan l5-swagger:generate
+```
+
+Dokumentasi dapat diakses pada:
+
+```text
+http://127.0.0.1:8000/api/documentation
 ```
 
 ### Jalankan Server
