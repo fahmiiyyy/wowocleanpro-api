@@ -1,0 +1,219 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "WowoClean Pro API",
+        "description": "API Dokumentasi WowoClean",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/": {},
+        "/api/v1/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Login User",
+                "operationId": "da2ca4d7a5cdec77b8b45a20373535cb",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "admin@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "password123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/profile": {
+            "get": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Get Current User Profile",
+                "operationId": "e7fa93473c44547baf6183ba42322df2",
+                "responses": {
+                    "200": {
+                        "description": "User Profile"
+                    }
+                }
+            }
+        },
+        "/api/v1/logout": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Logout User",
+                "operationId": "c4eddaf1a2e990cc90e4326c0d731d41",
+                "responses": {
+                    "200": {
+                        "description": "Logout Success"
+                    }
+                }
+            }
+        },
+        "/api/v1/gateway/containers/search": {
+            "get": {
+                "tags": [
+                    "Containers"
+                ],
+                "summary": "Search Containers",
+                "operationId": "3d051fd37e25a62a7742c777cfb096c2",
+                "responses": {
+                    "200": {
+                        "description": "Search Result"
+                    }
+                }
+            }
+        },
+        "/api/v1/gateway/containers/{id}/logs": {
+            "get": {
+                "tags": [
+                    "Containers"
+                ],
+                "summary": "Container Tracking Logs",
+                "operationId": "dc3d93f8c3bb74b22e2536236071786b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Tracking Logs"
+                    }
+                }
+            }
+        },
+        "/api/v1/gateway/containers": {
+            "get": {
+                "tags": [
+                    "Containers"
+                ],
+                "summary": "Get All Containers",
+                "operationId": "2b2d68248c28024654e7a86b7438f618",
+                "responses": {
+                    "200": {
+                        "description": "List of containers"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Containers"
+                ],
+                "summary": "Create Container",
+                "operationId": "9fd1b234824cfb4408bba625efd9a9b8",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "container_id",
+                                    "waste_type",
+                                    "weight_kg"
+                                ],
+                                "properties": {
+                                    "container_id": {
+                                        "type": "string",
+                                        "example": "AB12345"
+                                    },
+                                    "waste_type": {
+                                        "type": "string",
+                                        "example": "Plastic"
+                                    },
+                                    "weight_kg": {
+                                        "type": "number",
+                                        "example": 500
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Container Created"
+                    }
+                }
+            }
+        },
+        "/api/v1/gateway/containers/{id}/archive": {
+            "patch": {
+                "tags": [
+                    "Containers"
+                ],
+                "summary": "Archive Container",
+                "operationId": "f6210060bd215f110527c05a61518d87",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Container Archived"
+                    }
+                }
+            }
+        },
+        "/api/v1/gateway/containers/{id}": {
+            "delete": {
+                "tags": [
+                    "Containers"
+                ],
+                "summary": "Delete Container",
+                "operationId": "1a0e077def78da5a0b3ccf66562ee9fe",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Container Deleted"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Authentication",
+            "description": "Authentication"
+        },
+        {
+            "name": "Containers",
+            "description": "Containers"
+        }
+    ]
+}
